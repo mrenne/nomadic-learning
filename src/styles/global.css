@@ -1,0 +1,52 @@
+@import "tailwindcss";
+
+@theme {
+  --color-neon: #00d4ff;
+  --color-neon-dim: #0099bb;
+  --color-bg: #080c10;
+  --color-surface: #0d1117;
+  --color-surface-2: #161b22;
+  --color-border: #1e2936;
+  --color-text: #e6edf3;
+  --color-muted: #7d8fa3;
+  --font-sans: 'Inter', system-ui, sans-serif;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    background-color: var(--color-bg);
+    color: var(--color-text);
+    font-family: var(--font-sans);
+  }
+
+  ::selection {
+    background-color: color-mix(in srgb, var(--color-neon) 30%, transparent);
+  }
+}
+
+@layer utilities {
+  .neon-glow {
+    box-shadow: 0 0 20px color-mix(in srgb, var(--color-neon) 25%, transparent),
+                0 0 60px color-mix(in srgb, var(--color-neon) 10%, transparent);
+  }
+
+  .neon-text-glow {
+    text-shadow: 0 0 20px color-mix(in srgb, var(--color-neon) 60%, transparent);
+  }
+
+  .bento-card {
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: 1rem;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+  }
+
+  .bento-card:hover {
+    border-color: color-mix(in srgb, var(--color-neon) 40%, transparent);
+    box-shadow: 0 0 30px color-mix(in srgb, var(--color-neon) 8%, transparent);
+  }
+}

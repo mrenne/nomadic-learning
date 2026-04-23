@@ -1,0 +1,270 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const featuredPosts = [
+  {
+    title: 'Learning in Motion: How Travel Rewires the Brain',
+    category: 'Neuroscience',
+    date: 'Apr 18, 2026',
+    readTime: '7 min read',
+    excerpt: 'Exploring the science behind why immersive, novel environments accelerate knowledge retention and creativity.',
+    tag: 'Featured',
+  },
+  {
+    title: 'The Digital Nomad\'s Study Stack',
+    category: 'Tools',
+    date: 'Apr 12, 2026',
+    readTime: '5 min read',
+    excerpt: 'A curated toolkit of apps, hardware, and methods for learning anywhere — from co-working spaces to mountain cafés.',
+    tag: 'Popular',
+  },
+  {
+    title: 'Language Acquisition Without a Classroom',
+    category: 'Languages',
+    date: 'Apr 5, 2026',
+    readTime: '9 min read',
+    excerpt: 'Field-tested strategies for reaching conversational fluency through immersion, habit loops, and street-level curiosity.',
+    tag: 'Deep Dive',
+  },
+];
+
+const services = [
+  {
+    icon: '✦',
+    title: 'In-Depth Guides',
+    description: 'Step-by-step frameworks for mastering skills on the road — structured, practical, and tested in the wild.',
+    span: 'md:col-span-2',
+  },
+  {
+    icon: '◈',
+    title: 'Expert Interviews',
+    description: 'Conversations with educators, polyglots, and remote learners who\'ve built unconventional paths.',
+    span: '',
+  },
+  {
+    icon: '⬡',
+    title: 'Resource Library',
+    description: 'Curated books, courses, tools, and communities — filtered for quality so you don\'t have to.',
+    span: '',
+  },
+  {
+    icon: '◉',
+    title: 'Learning Systems',
+    description: 'Spaced repetition, Zettelkasten, and other frameworks adapted for nomadic workflows.',
+    span: '',
+  },
+  {
+    icon: '⟡',
+    title: 'Community Dispatches',
+    description: 'Weekly notes from the Nomadic Learning community — what\'s working, what\'s not, and where we\'re headed.',
+    span: 'md:col-span-2',
+  },
+];
+
+const categories = [
+  { name: 'Languages', count: 24 },
+  { name: 'Tools & Apps', count: 18 },
+  { name: 'Neuroscience', count: 12 },
+  { name: 'Philosophy', count: 9 },
+  { name: 'Case Studies', count: 15 },
+  { name: 'Productivity', count: 21 },
+];
+---
+
+<Layout>
+  <!-- Nav -->
+  <nav class="fixed top-0 left-0 right-0 z-50 border-b border-[var(--color-border)] backdrop-blur-md bg-[color-mix(in_srgb,var(--color-bg)_80%,transparent)]">
+    <div class="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
+      <a href="/" class="flex items-center gap-2 group">
+        <span class="w-7 h-7 rounded-md bg-[var(--color-neon)] flex items-center justify-center text-[var(--color-bg)] font-bold text-sm group-hover:shadow-[0_0_16px_var(--color-neon)] transition-shadow">N</span>
+        <span class="font-semibold tracking-tight">Nomadic <span class="text-[var(--color-neon)]">Learning</span></span>
+      </a>
+      <div class="hidden md:flex items-center gap-8 text-sm text-[var(--color-muted)]">
+        <a href="#posts" class="hover:text-[var(--color-text)] transition-colors">Articles</a>
+        <a href="#services" class="hover:text-[var(--color-text)] transition-colors">Topics</a>
+        <a href="#categories" class="hover:text-[var(--color-text)] transition-colors">Categories</a>
+        <a href="#newsletter" class="hover:text-[var(--color-text)] transition-colors">Newsletter</a>
+      </div>
+      <a href="#newsletter" class="text-sm px-4 py-2 rounded-lg border border-[var(--color-neon)] text-[var(--color-neon)] hover:bg-[color-mix(in_srgb,var(--color-neon)_10%,transparent)] transition-colors">
+        Subscribe
+      </a>
+    </div>
+  </nav>
+
+  <main class="max-w-6xl mx-auto px-6 pt-32 pb-24 space-y-32">
+
+    <!-- Hero -->
+    <section class="text-center space-y-6 max-w-3xl mx-auto">
+      <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-[var(--color-border)] text-xs text-[var(--color-muted)] bg-[var(--color-surface)]">
+        <span class="w-1.5 h-1.5 rounded-full bg-[var(--color-neon)] animate-pulse"></span>
+        New articles every week
+      </div>
+      <h1 class="text-5xl md:text-7xl font-bold tracking-tight leading-none">
+        Learn Without
+        <span class="block text-[var(--color-neon)] neon-text-glow">Borders</span>
+      </h1>
+      <p class="text-lg text-[var(--color-muted)] leading-relaxed max-w-xl mx-auto">
+        Nomadic Learning explores how curious people acquire knowledge, skills, and wisdom — anywhere in the world.
+      </p>
+      <div class="flex flex-col sm:flex-row gap-3 justify-center pt-2">
+        <a href="#posts" class="px-6 py-3 rounded-xl bg-[var(--color-neon)] text-[var(--color-bg)] font-semibold text-sm hover:opacity-90 neon-glow transition-opacity">
+          Start Reading
+        </a>
+        <a href="#services" class="px-6 py-3 rounded-xl border border-[var(--color-border)] text-sm hover:border-[var(--color-neon)] hover:text-[var(--color-neon)] transition-colors">
+          Explore Topics
+        </a>
+      </div>
+
+      <!-- Hero image placeholder -->
+      <div class="mt-12 rounded-2xl overflow-hidden border border-[var(--color-border)] neon-glow aspect-[16/7] bg-[var(--color-surface-2)] flex items-center justify-center relative">
+        <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_50%_120%,color-mix(in_srgb,var(--color-neon)_15%,transparent),transparent_70%)]"></div>
+        <div class="relative text-center space-y-2">
+          <div class="text-4xl opacity-20">⊕</div>
+          <p class="text-[var(--color-muted)] text-sm">Hero Image Placeholder</p>
+          <p class="text-[var(--color-muted)] text-xs opacity-60">1600 × 700</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Featured Posts -->
+    <section id="posts" class="space-y-8">
+      <div class="flex items-end justify-between">
+        <div class="space-y-1">
+          <p class="text-xs uppercase tracking-widest text-[var(--color-neon)] font-medium">Latest</p>
+          <h2 class="text-3xl font-bold">Featured Articles</h2>
+        </div>
+        <a href="#" class="text-sm text-[var(--color-muted)] hover:text-[var(--color-neon)] transition-colors">View all →</a>
+      </div>
+
+      <div class="grid md:grid-cols-3 gap-4">
+        {featuredPosts.map((post, i) => (
+          <article class={`bento-card p-6 flex flex-col gap-4 group cursor-pointer ${i === 0 ? 'md:col-span-2 md:row-span-1' : ''}`}>
+            <!-- Post image placeholder -->
+            <div class={`rounded-xl bg-[var(--color-surface-2)] border border-[var(--color-border)] flex items-center justify-center overflow-hidden ${i === 0 ? 'aspect-[16/7]' : 'aspect-video'}`}>
+              <div class="text-center space-y-1">
+                <div class="text-2xl opacity-20">◫</div>
+                <p class="text-[var(--color-muted)] text-xs">Image Placeholder</p>
+              </div>
+            </div>
+            <div class="flex items-center gap-2 flex-wrap">
+              <span class="text-[10px] font-semibold uppercase tracking-widest px-2 py-0.5 rounded-full border border-[var(--color-neon)] text-[var(--color-neon)]">
+                {post.tag}
+              </span>
+              <span class="text-xs text-[var(--color-muted)]">{post.category}</span>
+            </div>
+            <div class="space-y-2 flex-1">
+              <h3 class={`font-semibold leading-snug group-hover:text-[var(--color-neon)] transition-colors ${i === 0 ? 'text-xl' : 'text-base'}`}>
+                {post.title}
+              </h3>
+              <p class="text-sm text-[var(--color-muted)] leading-relaxed">{post.excerpt}</p>
+            </div>
+            <div class="flex items-center gap-3 text-xs text-[var(--color-muted)] pt-2 border-t border-[var(--color-border)]">
+              <span>{post.date}</span>
+              <span>·</span>
+              <span>{post.readTime}</span>
+            </div>
+          </article>
+        ))}
+      </div>
+    </section>
+
+    <!-- Services / Topics Bento Grid -->
+    <section id="services" class="space-y-8">
+      <div class="space-y-1">
+        <p class="text-xs uppercase tracking-widest text-[var(--color-neon)] font-medium">What We Cover</p>
+        <h2 class="text-3xl font-bold">Topics & Services</h2>
+      </div>
+
+      <div class="grid md:grid-cols-3 auto-rows-auto gap-4">
+        {services.map((service) => (
+          <div class={`bento-card p-7 space-y-4 group cursor-pointer ${service.span}`}>
+            <div class="w-10 h-10 rounded-lg bg-[var(--color-surface-2)] border border-[var(--color-border)] flex items-center justify-center text-[var(--color-neon)] text-lg group-hover:border-[var(--color-neon)] group-hover:shadow-[0_0_20px_color-mix(in_srgb,var(--color-neon)_25%,transparent)] transition-all">
+              {service.icon}
+            </div>
+            <div class="space-y-2">
+              <h3 class="font-semibold text-lg">{service.title}</h3>
+              <p class="text-sm text-[var(--color-muted)] leading-relaxed">{service.description}</p>
+            </div>
+            <span class="inline-flex items-center gap-1 text-xs text-[var(--color-neon)] opacity-0 group-hover:opacity-100 transition-opacity">
+              Explore <span>→</span>
+            </span>
+          </div>
+        ))}
+
+        <!-- Stats card -->
+        <div class="bento-card p-7 space-y-6 bg-[radial-gradient(ellipse_at_top_left,color-mix(in_srgb,var(--color-neon)_8%,transparent),transparent_60%)]">
+          <p class="text-xs uppercase tracking-widest text-[var(--color-muted)] font-medium">By the numbers</p>
+          <div class="space-y-5">
+            {[['120+', 'Articles published'], ['18k', 'Monthly readers'], ['40+', 'Countries reached']].map(([num, label]) => (
+              <div class="flex items-baseline gap-3">
+                <span class="text-3xl font-bold text-[var(--color-neon)] neon-text-glow">{num}</span>
+                <span class="text-sm text-[var(--color-muted)]">{label}</span>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Categories -->
+    <section id="categories" class="space-y-8">
+      <div class="space-y-1">
+        <p class="text-xs uppercase tracking-widest text-[var(--color-neon)] font-medium">Browse</p>
+        <h2 class="text-3xl font-bold">Categories</h2>
+      </div>
+      <div class="grid grid-cols-2 md:grid-cols-3 gap-3">
+        {categories.map((cat) => (
+          <a href="#" class="bento-card p-5 flex items-center justify-between group hover:text-[var(--color-neon)] transition-colors">
+            <span class="font-medium text-sm">{cat.name}</span>
+            <span class="text-xs text-[var(--color-muted)] bg-[var(--color-surface-2)] px-2 py-0.5 rounded-full group-hover:text-[var(--color-neon)] transition-colors">
+              {cat.count}
+            </span>
+          </a>
+        ))}
+      </div>
+    </section>
+
+    <!-- Newsletter CTA -->
+    <section id="newsletter" class="relative rounded-2xl overflow-hidden border border-[var(--color-border)] p-12 text-center space-y-6">
+      <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_50%_0%,color-mix(in_srgb,var(--color-neon)_12%,transparent),transparent_70%)]"></div>
+      <div class="relative space-y-3">
+        <p class="text-xs uppercase tracking-widest text-[var(--color-neon)] font-medium">Stay curious</p>
+        <h2 class="text-4xl font-bold">The Weekly Dispatch</h2>
+        <p class="text-[var(--color-muted)] max-w-md mx-auto">
+          One email a week. New articles, curated resources, and learning experiments from the Nomadic Learning community.
+        </p>
+      </div>
+      <form class="relative flex flex-col sm:flex-row gap-3 max-w-md mx-auto" onsubmit="return false;">
+        <input
+          type="email"
+          placeholder="you@example.com"
+          class="flex-1 px-4 py-3 rounded-xl bg-[var(--color-surface-2)] border border-[var(--color-border)] text-sm placeholder-[var(--color-muted)] focus:outline-none focus:border-[var(--color-neon)] transition-colors"
+        />
+        <button
+          type="submit"
+          class="px-6 py-3 rounded-xl bg-[var(--color-neon)] text-[var(--color-bg)] font-semibold text-sm hover:opacity-90 neon-glow transition-opacity whitespace-nowrap"
+        >
+          Subscribe Free
+        </button>
+      </form>
+      <p class="relative text-xs text-[var(--color-muted)]">No spam. Unsubscribe at any time.</p>
+    </section>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="border-t border-[var(--color-border)] mt-0">
+    <div class="max-w-6xl mx-auto px-6 py-10 flex flex-col md:flex-row items-center justify-between gap-4 text-sm text-[var(--color-muted)]">
+      <div class="flex items-center gap-2">
+        <span class="w-6 h-6 rounded bg-[var(--color-neon)] flex items-center justify-center text-[var(--color-bg)] font-bold text-xs">N</span>
+        <span>Nomadic Learning</span>
+      </div>
+      <p>© 2026 Nomadic Learning. All rights reserved.</p>
+      <div class="flex gap-5">
+        <a href="#" class="hover:text-[var(--color-neon)] transition-colors">Twitter</a>
+        <a href="#" class="hover:text-[var(--color-neon)] transition-colors">RSS</a>
+        <a href="#" class="hover:text-[var(--color-neon)] transition-colors">About</a>
+      </div>
+    </div>
+  </footer>
+</Layout>
