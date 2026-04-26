@@ -3,30 +3,83 @@ import Layout from '../layouts/Layout.astro';
 
 const resources = [
   {
-    category: 'AI & Education',
+    category: 'Research',
     links: [
-      { title: 'Khanmigo — Khan Academy AI tutor', url: 'https://www.khanacademy.org/khan-labs' },
-      { title: 'Synthesis — AI-powered learning for kids', url: 'https://www.synthesis.com' },
-      { title: 'Anthropic Education research', url: 'https://www.anthropic.com/research' },
-      { title: 'MIT RAISE — Responsible AI for education', url: 'https://raise.mit.edu' },
+      {
+        title: 'Agentivism: a learning theory for the age of artificial intelligence — Yan & Gašević',
+        url: 'https://arxiv.org/abs/2604.07813',
+        note: 'Proposes a new learning theory for how humans build durable capability through selective AI delegation and internalization.',
+      },
+      {
+        title: 'Anthropic research publications',
+        url: 'https://www.anthropic.com/research',
+        note: 'Ongoing safety and capability research from Anthropic.',
+      },
+      {
+        title: 'MIT RAISE — Responsible AI for education',
+        url: 'https://raise.mit.edu',
+        note: 'Research initiative focused on responsible AI in K–12 and higher education.',
+      },
     ],
   },
   {
-    category: 'Learning Science',
+    category: 'Blog Posts',
     links: [
-      { title: 'Zettelkasten method explained', url: 'https://zettelkasten.de/introduction/' },
-      { title: 'Spaced repetition overview — Gwern', url: 'https://gwern.net/spaced-repetition' },
-      { title: 'Andy Matuschak\'s working notes', url: 'https://notes.andymatuschak.org' },
-      { title: 'The Learning Scientists — evidence-based strategies', url: 'https://www.learningscientists.org' },
+      {
+        title: 'Andy Matuschak\'s working notes',
+        url: 'https://notes.andymatuschak.org',
+        note: 'Live research notes on memory, learning, and tools for thought.',
+      },
+      {
+        title: 'The Learning Scientists — evidence-based strategies',
+        url: 'https://www.learningscientists.org',
+        note: 'Accessible explanations of cognitive science research applied to study and teaching.',
+      },
+      {
+        title: 'Spaced repetition — Gwern',
+        url: 'https://gwern.net/spaced-repetition',
+        note: 'Comprehensive deep dive into the research and practice of spaced repetition.',
+      },
+    ],
+  },
+  {
+    category: 'Audio / Video',
+    links: [
+      {
+        title: 'Khanmigo — Khan Academy AI tutor (demo)',
+        url: 'https://www.khanacademy.org/khan-labs',
+        note: 'Interactive demo of Khan Academy\'s Socratic AI tutor for students.',
+      },
+      {
+        title: 'Synthesis — AI-powered learning for kids',
+        url: 'https://www.synthesis.com',
+        note: 'Originally built for SpaceX employees\' children; now a collaborative learning platform.',
+      },
     ],
   },
   {
     category: 'Books',
     links: [
-      { title: 'The Educated Mind — Kieran Egan', url: 'https://www.press.uchicago.edu/ucp/books/book/chicago/E/bo3683991.html' },
-      { title: 'Make It Stick — Brown, Roediger, McDaniel', url: 'https://www.hup.harvard.edu/books/9780674729018' },
-      { title: 'Range — David Epstein', url: 'https://davidepstein.com/the-range/' },
-      { title: 'Ultralearning — Scott H. Young', url: 'https://www.scotthyoung.com/blog/ultralearning/' },
+      {
+        title: 'The Educated Mind — Kieran Egan',
+        url: 'https://www.press.uchicago.edu/ucp/books/book/chicago/E/bo3683991.html',
+        note: 'How imagination and storytelling shape cognitive development across learning stages.',
+      },
+      {
+        title: 'Make It Stick — Brown, Roediger & McDaniel',
+        url: 'https://www.hup.harvard.edu/books/9780674729018',
+        note: 'Evidence-based guide to durable learning; challenges common study myths.',
+      },
+      {
+        title: 'Range — David Epstein',
+        url: 'https://davidepstein.com/the-range/',
+        note: 'Why breadth and late specialization often produce more creative, adaptive thinkers.',
+      },
+      {
+        title: 'Ultralearning — Scott H. Young',
+        url: 'https://www.scotthyoung.com/blog/ultralearning/',
+        note: 'Strategies for aggressive, self-directed learning projects drawn from real case studies.',
+      },
     ],
   },
 ];
@@ -38,23 +91,32 @@ const resources = [
     <p class="text-[var(--color-muted)]">Curated links on AI, education, and learning science.</p>
   </div>
 
-  <div class="space-y-10">
+  <div class="space-y-12">
     {resources.map((section) => (
-      <div class="space-y-4">
+      <div class="space-y-3">
         <h2 class="text-xs font-semibold uppercase tracking-widest text-[var(--color-neon)]">
           {section.category}
         </h2>
-        <ul class="space-y-1">
+        <ul class="space-y-0">
           {section.links.map((link) => (
             <li>
               <a
                 href={link.url}
                 target="_blank"
                 rel="noopener noreferrer"
-                class="group flex items-center justify-between py-3 border-b border-[var(--color-border)] hover:border-[color-mix(in_srgb,var(--color-neon)_30%,transparent)] transition-colors"
+                class="group flex items-start justify-between gap-6 py-4 border-b border-[var(--color-border)] hover:border-[color-mix(in_srgb,var(--color-neon)_30%,transparent)] transition-colors"
               >
-                <span class="text-sm group-hover:text-[var(--color-neon)] transition-colors">{link.title}</span>
-                <span class="text-[var(--color-muted)] text-xs opacity-0 group-hover:opacity-100 transition-opacity">↗</span>
+                <div class="space-y-1 flex-1 min-w-0">
+                  <span class="block text-sm font-medium group-hover:text-[var(--color-neon)] transition-colors leading-snug">
+                    {link.title}
+                  </span>
+                  {link.note && (
+                    <span class="block text-xs text-[var(--color-muted)] leading-relaxed">
+                      {link.note}
+                    </span>
+                  )}
+                </div>
+                <span class="text-[var(--color-muted)] text-xs opacity-0 group-hover:opacity-100 transition-opacity shrink-0 mt-0.5">↗</span>
               </a>
             </li>
           ))}
