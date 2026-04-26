@@ -1,0 +1,65 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const resources = [
+  {
+    category: 'AI & Education',
+    links: [
+      { title: 'Khanmigo — Khan Academy AI tutor', url: 'https://www.khanacademy.org/khan-labs' },
+      { title: 'Synthesis — AI-powered learning for kids', url: 'https://www.synthesis.com' },
+      { title: 'Anthropic Education research', url: 'https://www.anthropic.com/research' },
+      { title: 'MIT RAISE — Responsible AI for education', url: 'https://raise.mit.edu' },
+    ],
+  },
+  {
+    category: 'Learning Science',
+    links: [
+      { title: 'Zettelkasten method explained', url: 'https://zettelkasten.de/introduction/' },
+      { title: 'Spaced repetition overview — Gwern', url: 'https://gwern.net/spaced-repetition' },
+      { title: 'Andy Matuschak\'s working notes', url: 'https://notes.andymatuschak.org' },
+      { title: 'The Learning Scientists — evidence-based strategies', url: 'https://www.learningscientists.org' },
+    ],
+  },
+  {
+    category: 'Books',
+    links: [
+      { title: 'The Educated Mind — Kieran Egan', url: 'https://www.press.uchicago.edu/ucp/books/book/chicago/E/bo3683991.html' },
+      { title: 'Make It Stick — Brown, Roediger, McDaniel', url: 'https://www.hup.harvard.edu/books/9780674729018' },
+      { title: 'Range — David Epstein', url: 'https://davidepstein.com/the-range/' },
+      { title: 'Ultralearning — Scott H. Young', url: 'https://www.scotthyoung.com/blog/ultralearning/' },
+    ],
+  },
+];
+---
+
+<Layout title="Resources — Nomadic Learning" description="Curated links on AI, education, and learning science.">
+  <div class="mb-10 space-y-2 border-b border-[var(--color-border)] pb-8">
+    <h1 class="text-3xl font-bold tracking-tight">Resources</h1>
+    <p class="text-[var(--color-muted)]">Curated links on AI, education, and learning science.</p>
+  </div>
+
+  <div class="space-y-10">
+    {resources.map((section) => (
+      <div class="space-y-4">
+        <h2 class="text-xs font-semibold uppercase tracking-widest text-[var(--color-neon)]">
+          {section.category}
+        </h2>
+        <ul class="space-y-1">
+          {section.links.map((link) => (
+            <li>
+              <a
+                href={link.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                class="group flex items-center justify-between py-3 border-b border-[var(--color-border)] hover:border-[color-mix(in_srgb,var(--color-neon)_30%,transparent)] transition-colors"
+              >
+                <span class="text-sm group-hover:text-[var(--color-neon)] transition-colors">{link.title}</span>
+                <span class="text-[var(--color-muted)] text-xs opacity-0 group-hover:opacity-100 transition-opacity">↗</span>
+              </a>
+            </li>
+          ))}
+        </ul>
+      </div>
+    ))}
+  </div>
+</Layout>
