@@ -1,0 +1,14 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(gh auth *)",
+      "Bash(gh repo *)",
+      "mcp__Claude_Preview__preview_start",
+      "Bash(gh api *)",
+      "Bash(gh run *)",
+      "Bash(rm -rf src/components)",
+      "Bash(npm run *)",
+      "Bash(node -e \"const p = require\\('./node_modules/astro/package.json'\\); console.log\\(p.version\\)\")"
+    ]
+  }
+}
