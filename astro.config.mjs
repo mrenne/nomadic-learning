@@ -5,8 +5,7 @@ import tailwindcss from '@tailwindcss/vite';
 
 // https://astro.build/config
 export default defineConfig({
-  site: 'https://mrenne.github.io',
-  base: '/nomadic-learning',
+  site: 'https://nomadiclearning.dev',
   vite: {
     plugins: [tailwindcss()]
   }

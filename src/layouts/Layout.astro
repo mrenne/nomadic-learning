@@ -11,7 +11,6 @@ const {
   description = 'Weekly thinking on how young people learn in the age of AI.',
 } = Astro.props;
 
-const base = import.meta.env.BASE_URL;
 ---
 
 <html lang="en">
@@ -31,13 +30,13 @@ const base = import.meta.env.BASE_URL;
     <!-- Nav -->
     <nav class="fixed top-0 left-0 right-0 z-50 border-b border-[var(--color-border)] backdrop-blur-md bg-[color-mix(in_srgb,var(--color-bg)_85%,transparent)]">
       <div class="max-w-2xl mx-auto px-6 h-14 flex items-center justify-between">
-        <a href={base} class="flex items-center gap-2 group">
+        <a href="/" class="flex items-center gap-2 group">
           <span class="w-6 h-6 rounded bg-[var(--color-neon)] flex items-center justify-center text-[var(--color-bg)] font-bold text-xs group-hover:shadow-[0_0_14px_var(--color-neon)] transition-shadow">N</span>
           <span class="font-semibold text-sm tracking-tight">Nomadic <span class="text-[var(--color-neon)]">Learning</span></span>
         </a>
         <div class="flex items-center gap-6 text-sm text-[var(--color-muted)]">
-          <a href={base} class="hover:text-[var(--color-text)] transition-colors">Blog</a>
-          <a href={`${base}/resources`} class="hover:text-[var(--color-text)] transition-colors">Resources</a>
+          <a href="/" class="hover:text-[var(--color-text)] transition-colors">Blog</a>
+          <a href="/resources" class="hover:text-[var(--color-text)] transition-colors">Resources</a>
         </div>
       </div>
     </nav>
